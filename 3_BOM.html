@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<style>li {padding:10px; list-style:none}</style>
+<body>
+
+    <!-- 2. 사용자 커뮤니케이션 -->
+    <input type="button" value="alert" onclick="alertFunction();" />
+    <input type="button" value="confirm" onclick="funcConfirm();" />
+    <input type="button" value="prompt" onclick="funcPormpt();" />
+    
+    <!-- 5. 창 제어  -->
+    <ui>
+        <li> <input type="button" onclick="open1()" value="basic" /> </li>
+        <li> <input type="button" onclick="open2()" value="_self" /> </li>
+        <li> <input type="button" onclick="open3()" value="_blank" /> </li>
+        <li> <input type="button" onclick="open4()" value="ot" />  </li>
+    </ui>
+
+
+    <script type="text/javascript">
+        // Browser Object Model ( BOM )
+        // Browser를 제어하기 위한 기능
+
+        // 1. 전역객체 (window) : 모든 객체가 소속된 객체 
+        var num = 123
+        console.log(window.num); // console.log(num)
+
+        var b = { myId: 32155034 }
+        console.log(window.b) // {myId : 32155034}
+        console.log(window.b.myId) // 32155034       
+
+
+        // 2. 사용자와 커뮤니케이션
+        // value = "alert"
+        function alertFunction() {
+            alert("this is alertFunction");
+        }
+        // value = "confirm"
+        function funcConfirm() {
+            if (confirm('Are you mad..?')) alert('OK');
+            else alert('Cancel');
+        }
+        // value = "prompt"
+        function funcPormpt() {
+            if (prompt('Whats your Id?') == 'gudwnsgur') alert('Correct!')
+            else alert('Fail!!');
+        }
+
+
+        // 3. Location 객체
+        console.log(location);
+        console.log(location.toString(), location.href);
+        console.log(location.protocol, location.host, location.port, location.pathname);
+        // location.reload() 
+
+        // 4. Navigator 객체
+        console.log(navigator); // 정보
+
+        // 5. 창 제어
+        // window.open('abc.html') :  
+        function open1() {window.open('demo2.html')};   // 새 탭으로 열린다
+        function open2() {window.open('demo2.html', '_self')}; // 현재 창에서 열린다
+        function open3() {window.open('demo2.html', '_blank')}; // 현재 창에서 열린다
+        function open4() {window.open('demo2.html', 'ot')}; /// 새 탭으로 열리되 이미 있으면 그 탭이 로드된다
+        
+
+    </script>
+</body>
+
+</html>

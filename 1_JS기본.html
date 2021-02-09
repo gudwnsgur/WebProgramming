@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<head>
+    <meta charset="utf-8"/>
+    <script src="module1.js"></script>he
+
+<title></title>
+</head>
+<body>
+    <script type="text/javascript">
+
+        // course 1
+        // 숫자와문자-1
+        console.log(2);
+        alert(5+3);
+
+        // 숫자와문자-2 (Math)
+        // pow, round(반올림), ceil(올림), floor(내림), sqrt(제곱근), random(0~1)
+        var a = Math.pow(3,2);
+        var b = Math.round(10.62); // 반올림
+        
+        // 숫자와문자-3 (문자)
+        console.log("HELLO WORLD\nHI!"); // 줄바꿈
+        console.log(" \'HELLO\' WORLD"); // ' 사용 => \'
+
+        console.log(typeof "1"); // string
+        console.log(typeof 2); // number
+
+        // 숫자와문자-4 (문자 연산)
+        console.log("coding " + "everyBody");
+        var str = "coding is good";
+        console.log(str.length)
+
+
+        // course 2 
+        // === : 데이터 형식도 판단
+        console.log(32 == "32"); // true
+        console.log(32 === "32"); // false
+        
+        console.log(null == undefined); // true
+        console.log(null === undefined); // false
+
+        console.log(true == 1) // true
+        console.log(true === 1) // false
+
+
+        // course 3 (if)
+        // 조건문-1
+        var id = prompt('아이디 입력');
+        if(id == 'egoing') console.log("일치");
+        else console.log("불일치");
+
+        // 조건문-2
+        // '', undefined, null, Nan : false 
+
+
+        // course 4 (Document.write)
+        document.write('coding everybody<br />'); // html에 작성
+
+
+        // course 5 (function)
+        // 함수-1
+        function func1(arg1, arg2) {
+            console.log(arg1 + arg2);
+            return arg1 + arg2;
+        }
+        console.log(func1(3, 10));
+
+        // 함수-2
+        var numbering = function() {
+            for(var i=0; i<10; i++) document.write(i);
+        }
+        numbering();
+
+
+        // course6 (array)
+        var str = ["1월", "2월", "3월"];
+        console.log(str.length);
+        console.log(str[0].length);
+
+        // push : 뒤에 추가
+        str.push("4월");
+        console.log(str);
+
+        // concat : 뒤에 복수 추가
+        str = str.concat(["5월", "6월"]);
+        console.log(str);
+
+        // unshift : 앞에 추가
+        str.unshift("0월");
+        console.log(str);
+
+        // splice : idx 2부터 3개를 지우고 그 앞에 "---" 추가
+        str.splice(2, 3, "---");
+        str.splice(2, 3);
+        console.log(str);
+
+        var str = ["1월","3월" , "2월",  "8월", "4월", "5월"];
+
+        // shift : 앞에 삭제 
+        str.shift()
+        console.log(str);
+
+        // pop : 뒤에 삭제
+        str.pop()
+        console.log(str);
+
+        // sort, reverse : 정렬, 역순
+        str.sort()
+        console.log(str);
+
+        str.reverse()
+        console.log(str);
+
+
+        // course7 (객체 Object) : C++의 map
+        // 객체-1
+        var grades2 = new Object();
+        grades2['sd'] = 3;
+        console.log(grades2['sd']);
+
+        // 객체-2
+        var grades = {'hyoung' : 3, 'joon' : 4, 'hyuck' : 5};
+        console.log(grades.hyoung)
+        for(key_ in grades) {
+            document.write(key_ + " " + grades[key_]);
+        }
+
+        // 객체-3
+        var ob = {
+            'list' : {'hyoung' : 3, 'joon' : 4, 'hyuck' : 5},
+            'show' : function() {
+                for(var name in this.list) {
+                    document.write(name + " " + this.list[name]);
+                }
+            } 
+        };
+        ob.show();
+
+        // course8 (모듈)
+        // Module-1
+        console.log(welcome());
+        // head의  <script src="module1.js" /script> 로 불러옴
+        
+        
+
+    </script>
+</body>
+</html>
