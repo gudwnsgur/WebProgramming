@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<style> </style>
+
+<body>
+    <script src="http://code.jquery.com/jquery-latest.js"> </script>
+
+    <script>
+        $('body').on('click', 'a, li', function (event) {
+            console.log('late binding  ' + this.tagName);
+        })
+    </script>
+
+    <!-- on 문법 
+        .on( events [, selector ] [, data ], handler(eventObject) )
+    -->
+
+    <!-- 1. jQuery event 방식 -->
+    <input type='button' id="jQuery" value="button" />
+
+    <ul>
+        <li><a href="#">HTML</a></li>
+        <li><a href="#">CSS</a></li>
+        <li><a href="#">JavaScript</a></li>
+    </ul>
+    <input type="text" id= "textTarget">
+
+
+
+    <script type="text/javascript">
+        // 1. jQuery 
+        function jQueryListener(event) { console.log('this is jQuery'); }
+
+        $('#jQuery').on('click', jQueryListener); // 1번 방법
+        $('#jQuery').on('click', function (event) { // 2번 방법
+            console.log('this is jQuery2');
+        })
+
+        // 2. Selector
+        $('ul').on('click', 'a, li', function (event) {
+            console.log(this.tagName);
+        })
+
+        $('ul').find('li').on('click', 'a, li', function (event) {
+            console.log('late binding');
+        })
+
+        // 3. 다중 Selector
+        // 하나의 target에 여러 event에 대한 동작을 한번에 설정하는 방법
+        $('#textTarget').on({
+            'focus': function (e) {
+                console.log(e.type);
+            },
+            'blur': function (e) {
+                console.log(e.type);
+            },
+            'click': function (e) {
+                console.log(e.type);
+            }
+        })
+        
+
+    </script>
+</body>
+
+</html>
