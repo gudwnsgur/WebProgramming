@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<style> </style>
+
+<body>
+    <script src="http://code.jquery.com/jquery-latest.js"> </script>
+
+    <!-- 1. inline 방식 -->
+    <input type="button" onclick="alert(location)">
+    <input type="button" onclick="window.open('demo2.html')">
+    <!-- this. 로 자기 자신 참조 가능 -->
+    <input type="button" onclick="console.log(this.value)" value='1.inline'>
+
+
+    <!-- 2. 프로퍼티 리스너 방식 -->
+    <input type="button" id="target" value="button" />
+
+    <!-- 3. addEventListener 방식 -->
+    <input type='button' id="target3" value="button" />
+
+    <script type="text/javascript">
+
+        // 2. 프로퍼티 리스너 방식
+        // 단점 : 하나의 method(onclick)에 단 하나의 event만을 등록할 수 있다.
+        var t2 = document.getElementById('target');
+        console.log(t2);
+        t2.onclick = function (event) {
+            console.log(event); // event(onclick) 시 상태변화의 정보가 담긴다.
+            console.log('2.property listener');
+        }
+
+        // 3. addEventListener 방식
+        // 장점 : 하나의 event target에 여러개의 event를 등록할 수 있다.
+        var t3 = document.getElementById('target3');
+        t3.addEventListener('click', function (event) {
+            console.log('third!' + event.target.value);
+        })
+
+        var t4 = document.getElementById('target3');
+        console.log(t4);
+        
+        function btn_listener(event) {
+            console.log('third one more time !' + event.target.value)
+        }
+        t4.addEventListener('click', btn_listener);
+
+    </script>
+</body>
+
+</html>
