@@ -18,6 +18,9 @@
     <!-- 3. addEventListener 방식 -->
     <input type='button' id="target3" value="button" />
 
+    <!-- 4. jQuery 방식 -->
+    <input type='button' id="jQuery" value="button" />
+
     <script type="text/javascript">
 
         // 2. 프로퍼티 리스너 방식
@@ -40,10 +43,20 @@
         console.log(t4);
         
         function btn_listener(event) {
-            console.log('third one more time !' + event.target.value)
+            console.log('third one more time--- !' + event.target.value)
         }
-        t4.addEventListener('click', btn_listener);
+        // t4.addEventListener('click', btn_listener);
 
+
+        // 4. jQuery 
+        function jQueryListener(event) {console.log('this is jQuery');}
+
+        $('#jQuery').on('click', jQueryListener); // 1번 방법
+        $('#jQuery').on('click', function(event) { // 2번 방법
+            console.log('this is jQuery2');
+        })
+
+        
     </script>
 </body>
 
