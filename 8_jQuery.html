@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+
+    <style type="text/css">
+        #navigation li {
+            list-style: none;
+            float: left;
+            padding: 5px;
+        }
+
+        #navigation {
+            cursor: pointer;
+        }
+
+        #navigation .selected {
+            background-color: red;
+            color: white;
+        }
+    </style>
+
+</head>
+
+<body>
+    <div class='welcome'>
+        <div class = 'target'> sdsdsd</div>
+        oooo
+         </div>
+
+    <input type='button' id="jQuery" value="button" />
+
+    <ul>
+        <li><a href="#">HTML</a></li>
+        <li><a href="#">CSS</a></li>
+        <li><a href="#">JavaScript</a></li>
+    </ul>
+    <input type="text" id="textTarget">
+
+    <ul id="navigation">
+        <li>HTML</li>
+        <li>CSS</li>
+        <li>javascript</li>
+        <li class="selected">jQuery</li>
+        <li>PHP</li>
+        <li>mysql</li>
+    </ul>
+
+
+    <ul class="first">
+        <li class="foo"> list item 1 </li>
+        <li> list item 2 </li>
+        <li class="bar"> list item 3 </li>
+    </ul>
+    <ul class="second">
+        <li class="foo"> list item 1 </li>
+        <li> list item 2 </li>
+        <li class="bar"> list item 3 </li>
+    </ul>
+    
+
+    <script src="http://code.jquery.com/jquery-latest.js"> </script>
+
+
+    <script type="text/javascript">
+        $('.welcome').html('hello world! coding everybody!').css('background-color', 'yellow');
+
+        $('#navigation').find('li').on('click', function () {
+            $('#navigation').find('li').removeClass('selected');
+            $(this).addClass('selected');
+        })
+        $('body').on('click', 'a, li', function (event) {
+            console.log('late binding  ' + this.tagName);
+        })
+
+
+        $('ul.first').find('.foo').css('background-color', 'green').end().find('.bar').css('background-color', 'orange');
+
+    </script>
+    
+</body>
+
+</html>
